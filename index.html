@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Obed Rodríguez | AI Operations & Performance Specialist</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#181A1D; --panel:#212428; --panel-2:#26292E; --line:#34383E;
+    --ink:#EDEBE6; --ink-dim:#A7ACB4; --accent:#F2A73B; --accent-ink:#181A1D;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; scroll-padding-top:70px;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+    padding-top:env(safe-area-inset-top,0px);
+  }
+  h1,h2,h3,.brand{font-family:'Space Grotesk',system-ui,sans-serif;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50; background:rgba(24,26,29,.9);
+    backdrop-filter:blur(8px); border-bottom:1px solid var(--line);
+    padding-top:env(safe-area-inset-top,0px);
+  }
+  nav.wrap{display:flex; align-items:center; justify-content:space-between; height:68px;}
+  .brand{font-size:1.05rem; font-weight:600; display:flex; align-items:center; gap:.55rem;}
+  .brand span{width:32px; height:32px; border-radius:8px; background:var(--accent); color:var(--accent-ink);
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.85rem;}
+  .nav-links{display:flex; gap:2rem; font-size:.92rem; color:var(--ink-dim);}
+  .nav-links a:hover{color:var(--ink);}
+  .btn{display:inline-flex; align-items:center; gap:.5rem; padding:.65rem 1.15rem; border-radius:8px;
+    font-weight:600; font-size:.9rem; white-space:nowrap;}
+  .btn-accent{background:var(--accent); color:var(--accent-ink);}
+  .btn-accent:hover{filter:brightness(1.08);}
+  .btn-ghost{border:1px solid var(--line); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--accent);}
+  .menu-toggle{display:none; background:none; border:1px solid var(--line); color:var(--ink); border-radius:8px; padding:.4rem .6rem;}
+
+  /* HERO */
+  .hero{padding:5rem 0 4rem; border-bottom:1px solid var(--line);}
+  .hero-role{color:var(--accent); font-size:.95rem; font-weight:600; margin-bottom:1rem;}
+  .hero h1{font-size:clamp(2.1rem,4.4vw,3.4rem); font-weight:700; line-height:1.12; max-width:16ch; margin-bottom:1.3rem;}
+  .hero p{color:var(--ink-dim); font-size:1.08rem; max-width:58ch; margin-bottom:2rem;}
+  .hero-cta{display:flex; flex-wrap:wrap; gap:.9rem; margin-bottom:3.2rem;}
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden;}
+  .stat{background:var(--panel); padding:1.3rem 1.1rem;}
+  .stat b{display:block; font-family:'Space Grotesk',sans-serif; font-size:1.7rem; color:var(--accent);}
+  .stat span{color:var(--ink-dim); font-size:.83rem;}
+
+  /* SECTION HEADERS */
+  section{padding:4.5rem 0;}
+  section + section{border-top:1px solid var(--line);}
+  .sec-head{max-width:56ch; margin-bottom:2.6rem;}
+  .sec-head h2{font-size:clamp(1.5rem,2.6vw,2rem); font-weight:700; margin-bottom:.7rem;}
+  .sec-head p{color:var(--ink-dim);}
+
+  /* CARDS - automations */
+  .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:1.1rem;}
+  .card{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:1.6rem;}
+  .card h3{font-size:1.08rem; font-weight:600; margin-bottom:.6rem;}
+  .card p{color:var(--ink-dim); font-size:.94rem; margin-bottom:1rem;}
+  .tags{display:flex; flex-wrap:wrap; gap:.45rem;}
+  .tag{font-size:.76rem; color:var(--ink-dim); border:1px solid var(--line); border-radius:6px; padding:.25rem .55rem;}
+
+  /* Leadership */
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:1.1rem; margin-bottom:2.6rem;}
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:1.1rem; margin-bottom:2rem;}
+  .step{border-left:2px solid var(--accent); padding-left:1rem;}
+  .step b{font-family:'Space Grotesk',sans-serif; color:var(--accent); font-size:.85rem;}
+  .step div{font-weight:600; margin:.35rem 0 .2rem;}
+  .step span{color:var(--ink-dim); font-size:.85rem;}
+  blockquote{border-top:1px solid var(--line); padding-top:1.6rem; font-size:1.15rem; font-style:italic; color:var(--ink-dim); max-width:60ch;}
+
+  /* Pricing */
+  .plans{display:grid; grid-template-columns:repeat(3,1fr); gap:1.1rem;}
+  .plan{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:1.8rem; display:flex; flex-direction:column;}
+  .plan.pop{border-color:var(--accent); background:var(--panel-2); position:relative;}
+  .pop-badge{position:absolute; top:-12px; left:1.8rem; background:var(--accent); color:var(--accent-ink); font-size:.72rem; font-weight:700; padding:.2rem .6rem; border-radius:5px;}
+  .plan h3{font-size:1.05rem; font-weight:600;}
+  .plan .desc{color:var(--ink-dim); font-size:.88rem; margin:.4rem 0 1rem;}
+  .plan .price{font-family:'Space Grotesk',sans-serif; font-size:2rem; font-weight:700; margin-bottom:1.2rem;}
+  .plan .price sup{font-size:.9rem; color:var(--ink-dim); font-weight:500;}
+  .plan ul{list-style:none; margin-bottom:1.6rem; flex:1;}
+  .plan li{color:var(--ink-dim); font-size:.88rem; padding:.4rem 0; border-top:1px solid var(--line); display:flex; gap:.5rem;}
+  .plan li:first-child{border-top:none;}
+  .plan li::before{content:"—"; color:var(--accent); flex-shrink:0;}
+  .plan .btn{justify-content:center; width:100%;}
+
+  /* Contact */
+  .contact{text-align:center;}
+  .contact h2{font-size:clamp(1.6rem,3vw,2.2rem); font-weight:700; max-width:26ch; margin:0 auto 1rem;}
+  .contact p{color:var(--ink-dim); max-width:50ch; margin:0 auto 2rem;}
+
+  footer{border-top:1px solid var(--line); padding:2rem 0; padding-bottom:calc(2rem + env(safe-area-inset-bottom,0px));}
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;}
+  footer p{color:var(--ink-dim); font-size:.85rem;}
+  .social{display:flex; gap:1rem;}
+  .social a{color:var(--ink-dim); font-size:.85rem; border:1px solid var(--line); border-radius:6px; padding:.4rem .7rem;}
+  .social a:hover{color:var(--ink); border-color:var(--accent);}
+
+  @media (max-width:860px){
+    .grid-2,.grid-3,.plans{grid-template-columns:1fr;}
+    .steps{grid-template-columns:repeat(2,1fr);}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .nav-links{position:fixed; top:68px; left:0; right:0; background:var(--bg); border-bottom:1px solid var(--line);
+      flex-direction:column; padding:1.2rem 24px; gap:1.1rem; transform:translateY(-130%); transition:transform .25s ease; z-index:40;}
+    .nav-links.open{transform:translateY(0);}
+    .menu-toggle{display:block;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#" class="brand"><span>OR</span>Obed Rodríguez</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#automatizaciones">Automatización IA</a>
+      <a href="#operaciones">Operaciones &amp; RRHH</a>
+      <a href="#servicios-cv">Servicios de CV</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:.6rem;">
+      <a class="btn btn-accent" href="https://wa.me/584244050767?text=Hola%20Obed%2C%20vengo%20desde%20tu%20sitio%20web" target="_blank" rel="noopener">Escríbeme</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="hero-role">Operations &amp; AI Workflow Specialist</p>
+    <h1>Transformo operaciones complejas con inteligencia artificial</h1>
+    <p>Especialista en gestión de operaciones de logística (Amazon DSP), métricas críticas y recursos humanos. Diseño sistemas autónomos con Claude AI, Slack, SharePoint y WhatsApp para eliminar errores manuales y escalar la productividad de un equipo.</p>
+    <div class="hero-cta">
+      <a class="btn btn-accent" href="#automatizaciones">Ver automatizaciones con IA</a>
+      <a class="btn btn-ghost" href="#servicios-cv">Optimizar mi CV</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>+4 años</b><span>Atención, ventas y operaciones</span></div>
+      <div class="stat"><b>100%</b><span>Flujos de disputa autónomos con IA</span></div>
+      <div class="stat"><b>88%</b><span>Target de scorecard, Amazon DSP</span></div>
+      <div class="stat"><b>ES / EN</b><span>Comunicación bilingüe fluida</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="automatizaciones">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Sistemas autónomos y agentes de IA</h2>
+      <p>Flujos de trabajo construidos con Claude AI e integraciones a medida que eliminan tareas repetitivas y reducen el error humano.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Sistema de disputas cognitivas con Claude</h3>
+        <p>Automatización que evalúa las infracciones asignadas por Amazon, analiza la validez normativa de la falta, identifica inconsistencias del sistema y redacta e ingresa la disputa sin intervención humana.</p>
+        <div class="tags"><span class="tag">Claude AI</span><span class="tag">Amazon DSP</span><span class="tag">Análisis cognitivo</span></div>
+      </div>
+      <div class="card">
+        <h3>Extracción Slack → PDFs → SharePoint Excel</h3>
+        <p>Integración que escanea canales de Slack en busca de reportes de volumen de estación, descarga los PDF adjuntos, extrae la información clave y la vincula en hojas de Excel alojadas en SharePoint.</p>
+        <div class="tags"><span class="tag">Slack API</span><span class="tag">PDF parsing</span><span class="tag">SharePoint Excel</span></div>
+      </div>
+      <div class="card">
+        <h3>Despacho automático y notificación a flota</h3>
+        <p>Flujo que extrae los datos de rutas diarias, incluyendo recolecciones (pickups) y devoluciones de clientes, y envía un resumen formateado por WhatsApp a cada conductor de forma individual.</p>
+        <div class="tags"><span class="tag">WhatsApp automation</span><span class="tag">Logística de flota</span><span class="tag">Rutas &amp; pickups</span></div>
+      </div>
+      <div class="card">
+        <h3>Agente de soporte autónomo en WhatsApp</h3>
+        <p>Proyecto en Claude entrenado con documentación operativa interna que responde mensajes entrantes en la línea corporativa, dando soporte contextual a los conductores sin atención humana constante.</p>
+        <div class="tags"><span class="tag">Base de conocimiento</span><span class="tag">Prompt engineering</span><span class="tag">Soporte 24/7</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="operaciones">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Liderazgo operativo y disciplina progresiva</h2>
+      <p>Gestiono el rendimiento de los equipos combinando análisis riguroso de indicadores con comunicación asertiva para alinear expectativas y resolver conflictos.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Control de scorecards &amp; métricas</h3>
+        <p>Supervisión constante de indicadores clave (DVIC, seguridad, entregas) para mantener la operación por encima del objetivo semanal del 88%.</p>
+      </div>
+      <div class="card">
+        <h3>Protocolo de disciplina progresiva</h3>
+        <p>Ejecución del programa de RR. HH. en cuatro fases, desde el coaching verbal hasta el offboarding definitivo.</p>
+      </div>
+      <div class="card">
+        <h3>Beneficios &amp; conversaciones difíciles</h3>
+        <p>Gestión de elegibilidad para la garantía de 10 horas de trabajo y comunicación clara sobre la pérdida de bonos por incumplimiento de métricas.</p>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step"><b>01</b><div>Coaching verbal</div><span>Feedback asertivo</span></div>
+      <div class="step"><b>02</b><div>Primer warning escrito</div><span>Suspensión de 1 día</span></div>
+      <div class="step"><b>03</b><div>Reincidencias</div><span>Hasta 3 avisos, plan de acción</span></div>
+      <div class="step"><b>04</b><div>Cuarta incidencia</div><span>Desvinculación</span></div>
+    </div>
+    <blockquote>"Un proceso transparente protege la cultura del equipo y eleva los estándares operativos."</blockquote>
+  </div>
+</section>
+
+<section id="servicios-cv">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Traducción y optimización de CV para empleo remoto</h2>
+      <p>Adapto tu trayectoria profesional al estándar internacional para superar filtros ATS y destacar ante reclutadores de EE. UU. y LatAm.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <h3>Plan Básico</h3>
+        <p class="desc">Traducción directa y formato limpio.</p>
+        <p class="price">$15<sup> USD</sup></p>
+        <ul>
+          <li>Traducción precisa de español a inglés</li>
+          <li>Formato profesional estructurado</li>
+          <li>Adaptación básica para ATS</li>
+          <li>Entrega en 48 horas</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://wa.me/584244050767?text=Hola%20Obed%2C%20me%20interesa%20el%20Plan%20B%C3%A1sico%20de%20%2415" target="_blank" rel="noopener">Solicitar plan</a>
+      </div>
+      <div class="plan pop">
+        <span class="pop-badge">Más popular</span>
+        <h3>PRO Exprés</h3>
+        <p class="desc">Optimización completa ATS + redacción de impacto.</p>
+        <p class="price">$25<sup> USD</sup></p>
+        <ul>
+          <li>Todo lo del Plan Básico</li>
+          <li>Reestructuración de logros cuantitativos</li>
+          <li>Palabras clave ATS especializadas</li>
+          <li>Entrega prioritaria en 24 horas</li>
+        </ul>
+        <a class="btn btn-accent" href="https://wa.me/584244050767?text=Hola%20Obed%2C%20me%20interesa%20el%20Plan%20PRO%20Expr%C3%A9s%20de%20%2425" target="_blank" rel="noopener">Solicitar plan PRO</a>
+      </div>
+      <div class="plan">
+        <h3>Pack Full Carrera</h3>
+        <p class="desc">CV + carta de presentación + LinkedIn.</p>
+        <p class="price">$40<sup> USD</sup></p>
+        <ul>
+          <li>CV traducido y optimizado para ATS</li>
+          <li>Carta de presentación en inglés</li>
+          <li>Textos listos para tu perfil de LinkedIn</li>
+          <li>Asesoría de postulación remota</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://wa.me/584244050767?text=Hola%20Obed%2C%20me%20interesa%20el%20Pack%20Full%20de%20%2440" target="_blank" rel="noopener">Solicitar pack full</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact">
+  <div class="wrap">
+    <h2>¿Listo para optimizar tus operaciones o impulsar tu carrera?</h2>
+    <p>Hablemos sobre cómo puedo ayudarte a automatizar procesos con IA o a preparar tu perfil para el mercado internacional.</p>
+    <a class="btn btn-accent" href="https://wa.me/584244050767?text=Hola%20Obed%2C%20me%20gustar%C3%ADa%20conversar%20contigo" target="_blank" rel="noopener">Contactar por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Obed Rodríguez. Todos los derechos reservados.</p>
+    <div class="social">
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://wa.me/584244050767" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle=document.getElementById('menuToggle'), links=document.getElementById('navLinks');
+  toggle.addEventListener('click',()=>{
+    const open=links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded',open);
+  });
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open'); toggle.setAttribute('aria-expanded','false');}));
+</script>
+</body>
+</html>
